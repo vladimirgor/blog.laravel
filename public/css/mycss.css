@@ -1,0 +1,17 @@
+.art_img{
+    float:left;
+    margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+    max-width: 70%;
+    max-height: 70%;
+}
+.clear{
+    clear:both;
+}
+.comment {
+    color:navy;
+    font-size: 12px;
+
+}
+.comment_text {
+    font-size: 9px;
+}
