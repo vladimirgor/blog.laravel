@@ -21,7 +21,7 @@
                         </div>
                         <div class="panel-body">
                             <p>{{ articles_intro($article->content,100) }}<a class="btn btn-default btn-xs" href="{{ route('articleAdmin',['id' => $article->id,'page' => $articles->currentPage()]) }}" role="button">
-                                    Подробнее &raquo;</a></p>
+                                    Read full article &raquo;</a></p>
                         </div>
                     </div>
 
