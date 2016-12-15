@@ -93,4 +93,8 @@
         </div>
     </div>
 </div>
+@if(Session::has('message'))
+    {!!Session::get('message')!!}
+@endif
+
 @endsection
