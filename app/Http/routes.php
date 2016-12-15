@@ -63,6 +63,9 @@ Route::post('login', 'Auth\AuthController@postLogin');
 
 // Маршруты регистрации...
 Route::get('register', 'Auth\AuthController@getRegister');
-Route::post('register', 'Auth\AuthController@postRegister');
+
+//Route::post('register', 'Auth\AuthController@postRegister');
+Route::post('register','AdvancedReg@register');
+Route::get('register/confirm/{token}','AdvancedReg@confirm');
 
 Route::get('/home', 'HomeController@index');
