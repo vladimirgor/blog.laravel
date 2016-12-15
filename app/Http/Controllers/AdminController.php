@@ -142,15 +142,15 @@ class AdminController extends Controller
     public function deleteUser($id){
 
         $this->authorize('deleteUser');
-
         $user = User::find($id);
         $comments= User::find($id)->comments;
+
         foreach( $comments as $comment) {
             $article = Article::find($comment->article_id);
+            $comment->delete();
             $article->comment--;
             $article->save();
         }
-        $comments->deleteAll();
         $user->delete();
         return redirect('admin/user');
     }
