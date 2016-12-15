@@ -33,13 +33,13 @@ class AdvancedReg extends Controller
 
         if($user)
         {
-            $email=$user->email;  //это email, который ввел пользователь
-            $token=str_random(32); //это наша случайная строка
-            $model=new ConfirmUsers; //создаем экземпляр нашей модели
-            $model->email=$email; //вставляем в таблицу email
-            $model->token=$token; //вставляем в таблицу токен
-            $model->save();      // сохраняем все данные в таблицу
-//отправляем ссылку с токеном пользователю
+            $email=$user->email;  // user email
+            $token=str_random(32); //random string
+            $model=new ConfirmUsers; //new model instance
+            $model->email=$email; // email to model
+            $model->token=$token; //random string to model
+            $model->save();      // save all data
+//send link with token to user
             //return  view('email/confirm')-> with(['token'=>$token]);
             Mail::send('email/confirm',['token'=>$token],function($u) use ($user)
             {
@@ -48,20 +48,21 @@ class AdvancedReg extends Controller
                 $u->subject('Confirm registration');
             });
 
-            return back()->with('message','Все классно, осталось подтвердить почту. Наша читерская  <a href="/register/confirm/'.$token.'">Ссылка</a> для подтверждения почты');
+            return back()->with('message','All right. Email confirmation left only.
+            Наша читерская  <a href="/register/confirm/'.$token.'">Ссылка</a> для подтверждения почты');
         }
         else {
-            return back()->with('message','Беда с базой, попробуй позже');
+            return back()->with('message','Something went wrong.Please try again later.');
         }
     }
     public function confirm($token)
     {
-        $model=ConfirmUsers::where('token','=',$token)->firstOrFail(); //выбираем запись с переданным токеном, если такого нет то будет ошибка 404
-        $user=User::where('email','=',$model->email)->first(); //выбираем пользователя почта которого соответствует переданному токену
-        $user->status=1; // меняем статус на 1
-        $user->save();  // сохраняем изменения
-        $model->delete(); //Удаляем запись из confirm_users
-        return "Регистрация закончена";
+        $model=ConfirmUsers::where('token','=',$token)->firstOrFail(); //record with link token select, 404 error if missing
+        $user=User::where('email','=',$model->email)->first(); //record with link token select
+        $user->status=1; // status change to 1
+        $user->save();  // save changing
+        $model->delete(); //Удаляем запись из confirm_users record delete
+        return "Registration is finished successfully. Congratulations!";
     }
 
 }
