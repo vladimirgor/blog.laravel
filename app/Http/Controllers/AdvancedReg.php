@@ -10,7 +10,7 @@ use App\User;
 
 use App\ConfirmUsers;
 
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class AdvancedReg extends Controller
 {
@@ -40,15 +40,15 @@ class AdvancedReg extends Controller
             $model->token=$token; //random string to model
             $model->save();      // save all data
 //send link with token to user
-            /*
-            return  view('email/confirm')-> with(['token'=>$token]);
+
+            //return  view('email/confirm')-> with(['token'=>$token]);
             Mail::send('email/confirm',['token'=>$token],function($u) use ($user)
             {
                 //$u->from('admin@site.ru');
                 $u->to($user->email);
                 $u->subject('Confirm registration');
             });
-*/
+
             return back()->with('message','All right. Email confirmation left only.
             Наша читерская  <a href="/register/confirm/'.$token.'">Ссылка</a> для подтверждения почты');
         }
