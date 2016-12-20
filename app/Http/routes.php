@@ -57,7 +57,8 @@ Route::auth();
 
 // Маршруты аутентификации...
 Route::get('login', 'Auth\AuthController@getLogin');
-Route::post('login', 'Auth\AuthController@postLogin');
+//Route::post('login', 'Auth\AuthController@postLogin');
+Route::post('login', 'Auth\MyAuth@auth');
 
 //Route::get('logout', 'Auth\AuthController@getLogout');
 
