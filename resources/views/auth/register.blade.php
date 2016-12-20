@@ -87,14 +87,14 @@
                                 </button>
                             </div>
                         </div>
+                        @if(Session::has('message'))
+                            <strong>{!!Session::get('message')!!}</strong>
+                        @endif
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@if(Session::has('message'))
-    {!!Session::get('message')!!}
-@endif
 
 @endsection
