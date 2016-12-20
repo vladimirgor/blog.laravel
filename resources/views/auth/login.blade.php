@@ -57,6 +57,9 @@
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
                         </div>
+                            @if(Session::has('message'))
+                                <strong>{!!Session::get('message')!!}</strong>
+                            @endif
                     </form>
                 </div>
             </div>
