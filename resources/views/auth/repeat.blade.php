@@ -1,7 +1,10 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Владимир
- * Date: 17.01.2017
- * Time: 16:45
- */
+<form method="POST">
+    <label for="email">Your email</label>
+    <input type="email" name="email"/>
+    <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+    <br>
+    <input type="submit" value="Request"/>
+</form>
+@if(Session::has('message'))
+    {!!Session::get('message')!!}
+@endif

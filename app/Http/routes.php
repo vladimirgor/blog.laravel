@@ -69,4 +69,8 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register','AdvancedReg@register');
 Route::get('register/confirm/{token}','AdvancedReg@confirm');
 
+Route::get('repeat_confirm','AdvancedReg@getRepeat');
+Route::post('repeat_confirm','AdvancedReg@postRepeat');
+
+
 Route::get('/home', 'HomeController@index');
