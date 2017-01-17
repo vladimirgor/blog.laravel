@@ -40,17 +40,14 @@ class AdvancedReg extends Controller
             $model->token=$token; //random string to model
             $model->save();      // save all data
 //send link with token to user
-
-            //return  view('email/confirm')-> with(['token'=>$token]);
             Mail::send('email/confirm',['token'=>$token],function($u) use ($user)
             {
-                //$u->from('admin@site.ru');
                 $u->to($user->email);
                 $u->subject('Confirm registration');
             });
 
-            return back()->with('message','All right. Email confirmation left only.
-            Наша читерская  <a href="/register/confirm/'.$token.'">Ссылка</a> для подтверждения почты');
+            return back()->with('message','All right. Email confirmation left only.Check your email to confirm your email address.
+            ');
         }
         else {
             return back()->with('message','Something went wrong.Please try again later.');
@@ -64,6 +61,7 @@ class AdvancedReg extends Controller
         $user->save();  // save changing
         $model->delete(); //Удаляем запись из confirm_users record delete
         return "Registration is finished successfully. Congratulations!";
+        //return redirect('/');
     }
 
 }
