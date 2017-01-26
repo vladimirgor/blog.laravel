@@ -54,14 +54,23 @@ Route::get('user/delete/{user}','AdminController@deleteUser')->name('userDelete'
 Route::get('comment/delete/{comment}/{article_id}/{page}','AdminController@deleteComment')->name('commentDelete');
 // Authentication Routes...
 Route::auth();
-/*
+
 // Маршруты аутентификации...
 Route::get('login', 'Auth\AuthController@getLogin');
-Route::post('login', 'Auth\AuthController@postLogin');
-Route::get('logout', 'Auth\AuthController@getLogout');
+//Route::post('login', 'Auth\AuthController@postLogin');
+Route::post('login', 'Auth\MyAuth@auth');
+
+//Route::get('logout', 'Auth\AuthController@getLogout');
 
 // Маршруты регистрации...
 Route::get('register', 'Auth\AuthController@getRegister');
-Route::post('register', 'Auth\AuthController@postRegister');
-*/
+
+//Route::post('register', 'Auth\AuthController@postRegister');
+Route::post('register','AdvancedReg@register');
+Route::get('register/confirm/{token}','AdvancedReg@confirm');
+
+Route::get('repeat_confirm','AdvancedReg@getRepeat');
+Route::post('repeat_confirm','AdvancedReg@postRepeat');
+
+
 Route::get('/home', 'HomeController@index');

@@ -14,7 +14,7 @@
                             <label for="login" class="col-md-4 control-label">Login</label>
 
                             <div class="col-md-6">
-                                <input id="login" type="text" class="form-control" name="login" value="{{ old('login') }}">
+                                <input autofocus id="login" type="text" class="form-control" name="login" value="{{ old('login') }}">
 
                                 @if ($errors->has('login'))
                                     <span class="help-block">
@@ -57,6 +57,9 @@
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
                         </div>
+                            @if(Session::has('message'))
+                                <strong>{!!Session::get('message')!!}</strong>
+                            @endif
                     </form>
                 </div>
             </div>
