@@ -29,14 +29,15 @@ class AdvancedReg extends Controller
         {
             if($user->status==0)      // if email exists and the status 0, the offer to re-send a confirmation letter
             {
-                return 'This email is already registered, but not confirmed.
-                        Please, check your email or <a href="repeat_confirm">ask for</a>
-                        re-confirmation email.';
-
+                return view('info') -> with(['level' => 'warning','title'=>'Warning',
+                    'text' => 'Entered email is already registered, but not confirmed.
+                       Please, check your email or <a href="repeat_confirm">ask for</a>
+                       re-confirmation email.']);
             }
             else  //If status is not equal to 0, 1 is thus already been verified email
             {
-                return "A person with the entered email is already registered.";
+                return view('info')-> with(['level' => 'warning','title' => 'Warning',
+                    'text' => 'A person with the entered email is already registered.']);
             }
         }
 
@@ -62,12 +63,14 @@ class AdvancedReg extends Controller
                 $u->to($user->email);
                 $u->subject('Confirm registration');
             });
-
-            return back()->with('message','Letter with the confirmation link sent to your email.
-            Please,check your email.');
+            return view('info') -> with(['level' => 'default','title' => 'Information',
+                'text' => 'The confirmation link is sent to your email.
+            Please,check your email.']);
         }
         else {//if the user insert is not successful
-            return back()->with('message','Something went wrong.Please,try again later.');
+
+            return view('info') -> with(['level' => 'danger','title' => 'Wrong operation',
+                'text' => 'Something went wrong.Please,try again later.']);
         }
     }
     public function confirm($token)
@@ -77,7 +80,8 @@ class AdvancedReg extends Controller
         $user->status=1; // status change to 1
         $user->save();  // save changing
         $model->delete(); //confirm_users record delete
-        return "Registration is finished successfully. Congratulations!";
+        return view('info')->with(['level' => 'success','title' => 'Success',
+            'text'=>'Registration is finished successfully. Congratulations!']);
     }
 
     public function getRepeat()
@@ -104,12 +108,14 @@ class AdvancedReg extends Controller
                     $u->to($user->email);
                     $u->subject('Email confirmation');
                 });
-                return back()->with('message','Letter to confirm successfully sent to the entered address.'); //return with  that the message was sent
+                return view('info')->with(['level'=>'default', 'title' => 'Information',
+                    'text' => 'Link to confirm is successfully sent to the entered email.']); //return with  that the message was sent
             }
-            else {
-                return "This email has been confirmed already.";}
+            else  return view('info')->with(['level'=>'warning','title'=>'Warning',
+                'text' => 'The entered email has been confirmed already.']);
         }
-        else { return "No user with this email.";}
+        else  return view('info')->with(['level'=>'warning','title'=>'Warning',
+            'text' => 'No user with the entered email.']);
 
     }
 
