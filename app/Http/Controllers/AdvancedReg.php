@@ -36,8 +36,8 @@ class AdvancedReg extends Controller
             }
             else  //If status is not equal to 0, 1 is thus already been verified email
             {
-                return view('info')-> with(['level' => 'warning','title' => 'Warning',
-                    'text' => 'A person with the entered email is already registered.']);
+                return back()->with('message','A person with the entered email is already registered.
+                Please check your email.');
             }
         }
 
@@ -111,12 +111,15 @@ class AdvancedReg extends Controller
                 return view('info')->with(['level'=>'default', 'title' => 'Information',
                     'text' => 'Link to confirm is successfully sent to the entered email.']); //return with  that the message was sent
             }
-            else  return view('info')->with(['level'=>'warning','title'=>'Warning',
-                'text' => 'The entered email has been confirmed already.']);
+            else
+                return back()->with('message','The entered email has been confirmed already.
+                Please check your email.');
         }
-        else  return view('info')->with(['level'=>'warning','title'=>'Warning',
-            'text' => 'No user with the entered email.']);
-
+        else
+            //return view('info')->with(['level'=>'warning','title'=>'Warning',
+            //'text' => 'No user with the entered email.']);
+            return back()->with('message','No user with the entered email.
+             Please check your email.');
     }
 
 }
