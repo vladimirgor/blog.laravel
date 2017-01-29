@@ -15,8 +15,7 @@ class MyAuth extends Controller
             return redirect('/');
         }
         else {
-           // return view('info')->with(['level' => 'warning','title' => 'Warning',
-           //     'text' => 'Not a valid login and password, and email can not be confirmed.']);
+
             return back()->with('message','Not a valid login and password, and email can not be confirmed.');
         }
 
