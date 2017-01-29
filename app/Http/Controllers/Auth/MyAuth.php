@@ -16,7 +16,7 @@ class MyAuth extends Controller
         }
         else {
 
-            return back()->with('message','Not a valid login and password, and email can not be confirmed.');
+            return back()->with('message','Not a valid login and password, and may be email is not confirmed.');
         }
 
     }
