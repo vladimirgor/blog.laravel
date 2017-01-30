@@ -45,5 +45,8 @@ class Kernel extends ConsoleKernel
 // или
 //php c:\OpenServer\domains\blog.laravel\artisan schedule:run
 // c 1>> /dev/nul 2>&1 не работает
+//или
+//php %sitedir%\blog.laravel\artisan schedule:run
+// c >> /dev/nul 2>&1 не работает
 //%progdir%\modules\php\%phpdriver%\php-win.exe -c %progdir%\userdata\temp\config\php.ini -q -f %sitedir%\sitename.com\cron.php
 //%progdir%\modules\wget\bin\wget.exe -q --no-cache http://sitename.com/cron.php -O %progdir%\userdata\temp\temp.txt
