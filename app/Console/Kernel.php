@@ -30,12 +30,12 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         $schedule->call(function () {
             ConfirmUsers::where('updated_at','<',date('Y-m-d H:i:s',
-                //strtotime('-1 hours')
-                strtotime('-10 minutes')
+                strtotime('-1 hours')
+                //strtotime('-10 minutes')
             ))->delete();
             User::where('updated_at','<',date('Y-m-d H:i:s',
-                //strtotime('-1 hours')
-                strtotime('-10 minutes')
+                strtotime('-1 hours')
+                //strtotime('-10 minutes')
             ))->where('status','=',0)->delete();
        })->everyMinute();
     }
