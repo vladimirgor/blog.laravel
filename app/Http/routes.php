@@ -20,9 +20,6 @@ Route::get('testNav', function(){
 });
 Route::get('Test','TestController@index')->name('Test');
 
-Route::get('welcome', function () {
-    return view('welcome');
-});
 Route::get('welcome_v', function () {
     $laravel = app();
     return view('welcome_i', ['laravel'=>$laravel]);
