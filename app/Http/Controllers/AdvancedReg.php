@@ -81,7 +81,7 @@ class AdvancedReg extends Controller
         $user->save();  // save changing
         $model->delete(); //confirm_users record delete
         return view('info')->with(['level' => 'success','title' => 'Success',
-            'text'=>'Registration is finished successfully. Congratulations!']);
+            'text'=>'Registration is finished successfully. Congratulations! You may login now.']);
     }
 
     public function getRepeat()
