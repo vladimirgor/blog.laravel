@@ -14,7 +14,7 @@
                         </p>
                         @endif
                     <div class="panel-body content">
-                         {!! $article->content !!}
+                         {!! nl2br($article->content) !!}
                     </div>
                     <p class="clear"><p>
                 COMMENTS:
