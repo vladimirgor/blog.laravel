@@ -37,18 +37,16 @@
                         @endforeach
                     </ul>
                 @endif
-                <ul class="nav nav-pills">
-                    @if ( $article->image_path == NULL )
-                    <li role="presentation" class="active"><a class="btn-primary" href="{{ route('imageAdd',['id' => $article->id,'page'=>$page]) }}" >
-                            Add image</a></li>
-                    @endif
-                    <li role="presentation"><a class="btn-warning" href="{{ route('articleUpdate',['id' => $article->id,'page'=>$page]) }}">
-                            Update</a></li>
-                    <li role="presentation"><a class="btn-danger" href="{{ route('articleDelete',['article'=>$article->id]) }}">
-                            Delete Article</a></li>
-                    <li role="presentation"><a  class="btn-success" href="{{ url('admin/?page='. $page) }}" >
-                            Back</a></li>
-                </ul>
+                @if ( $article->image_path == NULL )
+                    <button class="button btn-primary"><a  href="{{ route('imageAdd',['id' => $article->id,'page'=>$page]) }}" >
+                        Add image</a></button>
+                @endif
+                <button class="button btn-warning"><a href="{{ route('articleUpdate',['id' => $article->id,'page'=>$page]) }}">
+                    Update</a></button>
+                <button class="button btn-danger"><a href="{{ route('articleDelete',['article'=>$article->id]) }}">
+                    Delete Article</a></button>
+                <button class="button btn-success"><a href="{{ url('admin/?page='. $page) }}" >
+                    Back</a></button>
             @endif
         </div>
         <hr>
