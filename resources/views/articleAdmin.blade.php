@@ -6,8 +6,8 @@
         @if ($articles)
             @can('admin') <!-- проверяем права -->
             <div class="panel-body">
-                <a class="btn btn-xs btn-default" href="{{ route('articleAdd') }}" role="button">
-                    Add new article</a>
+                <button class="button  btn-warning"><a  href="{{ route('articleAdd') }}">
+                    Add new article</a></button>
             </div>
             @endcan
             <!-- Example row of columns -->
@@ -20,8 +20,8 @@
                             <h4>{{ $article->title }}</h4> Posted :{{ $article->date }}/ Views :{{ $article->view }}/ Comments :{{ $article->comment }}
                         </div>
                         <div class="panel-body">
-                            <p>{{ articles_intro($article->content,100) }}<a class="btn btn-default btn-xs" href="{{ route('articleAdmin',['id' => $article->id,'page' => $articles->currentPage()]) }}" role="button">
-                                    Read full article &raquo;</a></p>
+                            <p>{{ articles_intro($article->content,100) }}<button class="button btn-primary"><a  href="{{ route('articleAdmin',['id' => $article->id,'page' => $articles->currentPage()]) }}" role="button">
+                                    Read full article &raquo;</a></button></p>
                         </div>
                     </div>
 
