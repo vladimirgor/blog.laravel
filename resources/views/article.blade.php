@@ -54,8 +54,8 @@
                     <h5>{{ $article->title }}</h5> Posted :{{ $article->date }}/ Views :{{ $article->view }}/ Comments :{{ $article->comment }}
                 </div>
                 <div class="panel-body">
-                    <p>{{ articles_intro($article->content,100) }}<a class="btn btn-default" href="{{ route('articleShow',['id' => $article->id,'page' => $articles->currentPage()]) }}" role="button">
-                            Read full article &raquo;</a></p>
+                    <p>{{ articles_intro($article->content,100) }}<button class="button btn-primary"><a href="{{ route('articleShow',['id' => $article->id,'page' => $articles->currentPage()]) }}" role="button">
+                            Read full article &raquo;</a></button></p>
                 </div>
             </div>
 
