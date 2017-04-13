@@ -15,3 +15,27 @@
 .comment_text {
     font-size: 9px;
 }
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 9px #999;
+}
+
+.button a {
+    text-decoration: none;
+    color: #fff;
+}
+.button a:hover {
+    font-style:italic;
+    font-weight: bolder;
+}
+.button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(5px);
+}
