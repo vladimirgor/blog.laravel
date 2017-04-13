@@ -30,7 +30,7 @@
                     <input type="text" class="form-control" id = "image_path" name="image_path" value="{{ $article->image_path }}">
                 </div>
 
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="button btn-primary">Submit</button>
 
                 {{ csrf_field() }}
             </form>
