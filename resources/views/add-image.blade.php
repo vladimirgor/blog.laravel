@@ -16,7 +16,7 @@
                 </div>
 
                 <!-- Add Comment Button -->
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="button btn-primary">Submit</button>
 
                 {{ csrf_field() }}
 
