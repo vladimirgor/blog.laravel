@@ -23,7 +23,7 @@
                     <label for="image">Image Address</label>
                     <input type="text" class=" form-control"  id = "image" name="image_path" placeholder="Image Address">
                 </div>
-                  <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="button btn-primary">Submit</button>
 
                    {{ csrf_field() }}
             </form>
