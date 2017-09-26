@@ -1,31 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-
-    @if ( !$comments->isEmpty() )
-
-        <div class="container">
-
-            <div class="row">
-
-                @foreach( $comments as $comment )
-
-                    <div class="panel panel-primary">
-
-                        <div class="panel-body">
-                            <p>{{ $comment->comment }}</p>
-                        </div>
+    <div class="container">
+        <h2>Comments confirmation</h2>
+        @if ( !$comments->isEmpty() )
+            <div class="form">
+                <!-- Display Validation Errors -->
+                @include('common.errors')
+                <form method="POST" action="{{route('confirmationComments')}}">
+                    <div class="form-group">
+                        @foreach( $comments as $comment )
+                            {{ $comment->comment }} <input type="checkbox"  name = "{{ $comment->article_id }}" value = "{{ $comment->id }}" >
+                             confirm<br>
+                        @endforeach
                     </div>
-
-                @endforeach
+                    <button type="submit" class="button btn-primary">Submit</button>
+                    {{ csrf_field() }}
+                </form>
 
             </div>
-
-            {{ $comments->links() }}
-
-            <hr>
-        </div> <!-- /container -->
-
-    @endif
-
+        @else
+            <br><h4>There are no comments to confirm</h4>
+        @endif
+        <hr>
+    </div> <!-- /container -->
 @endsection
