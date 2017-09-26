@@ -72,7 +72,7 @@
                             Moderator<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="moder">
-                            <li><a href="{{ route('moderation') }}">CommentsModeration</a></li>
+                            <li><a href="{{ route('moderation') }}">Comments Moderation</a></li>
                         </ul>
                     </li>
                     @endcan
