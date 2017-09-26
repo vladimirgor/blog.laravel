@@ -65,6 +65,17 @@
                         </ul>
                     </li>
                     @endcan
+                    @can('moder')
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="moder"
+                           aria-expanded="false">
+                            Moderator<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="moder">
+                            <li><a href="{{ route('moderation') }}">CommentsModeration</a></li>
+                        </ul>
+                    </li>
+                    @endcan
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
