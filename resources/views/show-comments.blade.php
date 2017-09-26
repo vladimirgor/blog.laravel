@@ -1,7 +1,31 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Владимир
- * Date: 26.09.2017
- * Time: 13:05
- */
+@extends('layouts.app')
+
+@section('content')
+
+    @if ( !$comments->isEmpty() )
+
+        <div class="container">
+
+            <div class="row">
+
+                @foreach( $comments as $comment )
+
+                    <div class="panel panel-primary">
+
+                        <div class="panel-body">
+                            <p>{{ $comment->comment }}</p>
+                        </div>
+                    </div>
+
+                @endforeach
+
+            </div>
+
+            {{ $comments->links() }}
+
+            <hr>
+        </div> <!-- /container -->
+
+    @endif
+
+@endsection
