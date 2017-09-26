@@ -8,19 +8,35 @@
                 <!-- Display Validation Errors -->
                 @include('common.errors')
                 <form method="POST" action="{{route('confirmationComments')}}">
-                    <div class="form-group">
+                    <table class = "table-bordered table-hover">
+                        <tr>
+                            <th>
+                                Comment
+                            </th>
+                            <th>
+                                Confirm
+                            </th>
+                        </tr>
                         @foreach( $comments as $comment )
-                            {{ $comment->comment }} <input type="checkbox"  name = "{{ $comment->article_id }}" value = "{{ $comment->id }}" >
-                             confirm<br>
+                            <tr>
+                                <td>
+                                    {{ $comment->comment }}
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           name = "{{ $comment->article_id }}"
+                                           value = "{{ $comment->id }}" >
+                                </td>
+                            </tr>
                         @endforeach
-                    </div>
+                    </table>
                     <button type="submit" class="button btn-primary">Submit</button>
                     {{ csrf_field() }}
                 </form>
 
             </div>
         @else
-            <br><h4>There are no comments to confirm</h4>
+            <br><h4>There are no comments to confirm.</h4>
         @endif
         <hr>
     </div> <!-- /container -->
