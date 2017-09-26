@@ -39,11 +39,13 @@ Route::get('admin/add','AdminController@add')->name('articleAdd');
 Route::get('page/update/{id}/{page}','AdminController@update')->name('articleUpdate');
 Route::get('image/add/{id}/{page}','AdminController@imageAdd')->name('imageAdd');
 Route::get('comment/add/{id}/{page}','CommentController@add')->middleware('auth')->name('commentAdd');
+Route::get('moderation','ModerController@showComments')->middleware('auth')->name('moderation');
 
 //POST request
 Route::post('page/store','AdminController@store')->name('articleStore');
 Route::post('page/update/store/{id}/{page}','AdminController@updateStore')->name('updateStore');
 Route::post('comment/store/{id}/{page}','CommentController@store')->name('commentStore');
+Route::post('comment/confirmation','ModerController@confirmationComments')->name('confirmationComments');
 Route::post('image/store/{id}/{page}','AdminController@imageStore')->name('imageStore');
 
 Route::get('delete/{article}','AdminController@deleteArticle')->name('articleDelete');

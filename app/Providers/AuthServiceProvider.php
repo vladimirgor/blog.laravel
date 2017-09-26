@@ -61,6 +61,12 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('article',function ($user){
             return $user->login == AUTH_USER;
         });
+        $gate->define('moder',function ($user){
+            return $user->login == AUTH_MODER;
+        });
+        $gate->define('moderationComments',function ($user){
+            return $user->login == AUTH_MODER;
+        });
     }
 
 }

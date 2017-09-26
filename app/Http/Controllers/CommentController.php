@@ -10,7 +10,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
-use App\Article;
+//use App\Article;
 use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller{
 
@@ -35,9 +35,9 @@ class CommentController extends Controller{
         $user = Auth::user();
         $comment->user_id=$user->id;
         $comment->save();
-        $article = Article::where('id',$article_id)->first();
-        $article->comment++;
-        $article->save();
+        //$article = Article::where('id',$article_id)->first();
+        //$article->comment++;
+        //$article->save();
         return redirect(url('/article' .'/'. $article_id .'/' . $page. '/0'));
 
         ///

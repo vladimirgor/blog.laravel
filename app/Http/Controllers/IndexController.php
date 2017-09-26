@@ -28,7 +28,7 @@ class IndexController extends Controller
     public function show($id, $page, $step=1){
         $article = Article::select(['id','title','content','view','image_path'])->where('id',$id)->first();
 
-        $comments = Article::find($id)->comments;
+        $comments = Article::find($id)->comments->where('status',1);
         if ( $step == 1 ){
             $article->view++;
             $article->save();
