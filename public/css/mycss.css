@@ -39,3 +39,24 @@
     box-shadow: 0 5px #666;
     transform: translateY(5px);
 }
+table {
+    width: 100%;
+    font-size: 1.3em;
+
+}
+.confirm_th, .confirm_td, .confirm_td_ch {
+    padding: 15px;
+}
+.confirm_th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.confirm_td {
+    font-style: italic;
+    text-align: left;
+}
+.confirm_td_ch {
+    text-align: center;
+}
