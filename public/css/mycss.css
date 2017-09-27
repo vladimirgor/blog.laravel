@@ -60,3 +60,9 @@ table {
 .confirm_td_ch {
     text-align: center;
 }
+.number {
+    text-align: center;
+}
+.warn{
+    color: #ff6e16;
+}
