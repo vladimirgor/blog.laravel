@@ -10,26 +10,27 @@
                 <form method="POST" action="{{route('confirmationComments')}}">
                     <table class = "table-bordered table-hover">
                         <tr>
-                            <th>
-                                Comment
+                            <th class = "confirm_th">
+                                Comment text
                             </th>
-                            <th>
-                                Confirm
+                            <th class = "confirm_th">
+                               Click to confirm the comment*
                             </th>
                         </tr>
                         @foreach( $comments as $comment )
                             <tr>
-                                <td>
+                                <td class = "confirm_td">
                                     {{ $comment->comment }}
                                 </td>
-                                <td>
+                                <td class = "confirm_td_ch">
                                     <input type="checkbox"
                                            name = "{{ $comment->article_id }}"
                                            value = "{{ $comment->id }}" >
                                 </td>
                             </tr>
                         @endforeach
-                    </table>
+                    </table><br>
+                    <h4>*Unclicked comments will be deleted</h4>
                     <button type="submit" class="button btn-primary">Submit</button>
                     {{ csrf_field() }}
                 </form>
