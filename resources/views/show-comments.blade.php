@@ -38,7 +38,7 @@
                             </tr>
                         @endforeach
                     </table><br>
-                    <h4 class = "warn">*Unclicked comments will be deleted</h4>
+                    <h4 class = "warn">*Please,be aware - unclicked comments will be deleted</h4>
                     <button type="submit" class="button btn-primary">Submit</button>
                     {{ csrf_field() }}
                 </form>
