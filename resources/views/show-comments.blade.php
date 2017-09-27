@@ -11,14 +11,22 @@
                     <table class = "table-bordered table-hover">
                         <tr>
                             <th class = "confirm_th">
+                                #
+                            </th>
+                            <th class = "confirm_th">
                                 Comment text
                             </th>
                             <th class = "confirm_th">
                                Click to confirm the comment*
                             </th>
                         </tr>
+                        <?php $number = 0;?>
                         @foreach( $comments as $comment )
+                            <?php $number++;?>
                             <tr>
+                                <td class = "number">
+                                    {{$number}}
+                                </td>
                                 <td class = "confirm_td">
                                     {{ $comment->comment }}
                                 </td>
@@ -30,7 +38,7 @@
                             </tr>
                         @endforeach
                     </table><br>
-                    <h4>*Unclicked comments will be deleted</h4>
+                    <h4 class = "warn">*Unclicked comments will be deleted</h4>
                     <button type="submit" class="button btn-primary">Submit</button>
                     {{ csrf_field() }}
                 </form>
