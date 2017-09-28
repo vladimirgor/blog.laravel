@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Comment;
 use App\Article;
@@ -13,12 +13,7 @@ class ModerController extends Controller
     public function showComments(){
         $this->authorize('moderationComments');
         // cleaning Comments_mod table
-        $comments_mod = Comment_mod::all();
-        if ( !empty($comments_mod)) {
-            foreach ( $comments_mod  as $comment_mod ) {
-                $comment_mod->delete();
-            }
-        }
+        DB::table('Comment_mod')->truncate();
         //getting 0 status comments
         $comments = Comment::select(['id','article_id','user_id','comment',
            'date','status'])->where('status',0)->orderBy('id','desc')->get();
