@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CommentMod extends Migration
+class CreateCommentModTable extends Migration
 {
     /**
      * Run the migrations.
