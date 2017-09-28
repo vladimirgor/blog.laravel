@@ -35,9 +35,6 @@ class CommentController extends Controller{
         $user = Auth::user();
         $comment->user_id=$user->id;
         $comment->save();
-        //$article = Article::where('id',$article_id)->first();
-        //$article->comment++;
-        //$article->save();
         return redirect(url('/article' .'/'. $article_id .'/' . $page. '/0'));
 
         ///
