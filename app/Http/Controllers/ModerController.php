@@ -44,17 +44,14 @@ class ModerController extends Controller
                 $comment = Comment::where('id',$id)->first();
                 $comment->status=1;
                 $comment->save();
-                //delete confirmed comment information from Commen_mod table
-                $comment_mod = Comment_mod::where('id',$id)->first();
-                $comment_mod->delete();
+                DB::table('Comment_mod')->where('id',$id)->delete();
             }
         }
         //deleting non-confirmed comments from Comment and Comment_mod table
-        $comments_mod = Comment_mod::all();
+        $comments_mod = Comment_mod::get();
         if ( !empty( $comments_mod)  )
             foreach ( $comments_mod  as $comment_mod ) {
-                $comment = Comment::where('id',$comment_mod->id)->first();
-                $comment->delete();
+                DB::table('Comment')->where('id',$comment_mod->id)->delete();
                 $comment_mod->delete();
             }
         return(redirect(url('/moderation')));
