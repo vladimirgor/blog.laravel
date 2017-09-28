@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('user_id');
             $table->date('date');
             $table->text('comment');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
