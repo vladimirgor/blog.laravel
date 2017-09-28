@@ -7,7 +7,6 @@ use App\Comment;
 use App\Article;
 use App\Comment_mod;
 
-
 class ModerController extends Controller
 {
     public function showComments(){
@@ -36,7 +35,7 @@ class ModerController extends Controller
         //Getting confirmed comments information
         foreach($_POST as $article_id => $id){
             if ( $article_id != '_token' ) {
-                // add 1 to comments  count in Article table
+                // add 1 to article comments  count in Article table
                 $article = Article::where('id',$article_id)->first();
                 $article->comment++;
                 $article->save();
