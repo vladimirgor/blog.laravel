@@ -46,7 +46,7 @@ class ModerController extends Controller
                 DB::table('Comment_mod')->where('id',$id)->delete();
             }
         }
-        //deleting non-confirmed comments from Comment and Comment_mod table
+        //deleting non-confirmed comments from Comment and Comment_mod tables
         $comments_mod = Comment_mod::all();
         if ( !empty( $comments_mod)  )
             foreach ( $comments_mod  as $comment_mod ) {
