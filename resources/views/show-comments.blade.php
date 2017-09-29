@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2>Comments confirmation</h2>
-        @if ( !$comments->isEmpty() )
+        @if ( !empty($comments) )
             <div class="form">
                 <!-- Display Validation Errors -->
                 @include('common.errors')
@@ -12,6 +12,9 @@
                         <tr>
                             <th class = "confirm_th">
                                 #
+                            </th>
+                            <th class = "confirm_th">
+                                User login
                             </th>
                             <th class = "confirm_th">
                                 Comment text
@@ -26,6 +29,9 @@
                             <tr>
                                 <td class = "number">
                                     {{$number}}
+                                </td>
+                                <td class = "number">
+                                    {{$comment->login}}
                                 </td>
                                 <td class = "confirm_td">
                                     {{ $comment->comment }}
