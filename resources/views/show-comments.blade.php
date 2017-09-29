@@ -14,6 +14,9 @@
                                 #
                             </th>
                             <th class = "confirm_th">
+                                User login
+                            </th>
+                            <th class = "confirm_th">
                                 Comment text
                             </th>
                             <th class = "confirm_th">
@@ -26,6 +29,9 @@
                             <tr>
                                 <td class = "number">
                                     {{$number}}
+                                </td>
+                                <td class = "number">
+                                    {{$comment->login}}
                                 </td>
                                 <td class = "confirm_td">
                                     {{ $comment->comment }}
