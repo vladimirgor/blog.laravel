@@ -18,7 +18,12 @@
                     </div>
                     <p class="clear"><p>
                 COMMENTS:
-
+                @if ($step == 2 )
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Thanks a lot for the comment!</strong> To be published your comment must pass the moderation procedure.
+                    </div>
+                @endif
                 @if ( $comments )
                     <ul>
                         @foreach ( $comments as $comment )
