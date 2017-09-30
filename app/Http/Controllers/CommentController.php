@@ -35,6 +35,6 @@ class CommentController extends Controller{
         $user = Auth::user();
         $comment->user_id=$user->id;
         $comment->save();
-        return redirect(url('/article' .'/'. $article_id .'/' . $page. '/0'));
+        return redirect(url('/article' .'/'. $article_id .'/' . $page. '/2'));
     }
 }
