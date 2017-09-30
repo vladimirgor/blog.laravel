@@ -40,7 +40,9 @@ class IndexController extends Controller
         return view('article-content')->with([
             'comments'=>$comments,
             'page' => $page,
-            'article'=>$article]);
+            'article'=>$article,
+            'step'=>$step
+        ]);
     }
 
 }
