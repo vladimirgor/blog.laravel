@@ -3,6 +3,12 @@
 @section('content')
     <div class="container">
         <h2>New Comment</h2>
+        <h4>Title</h4>
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                {{$title}}
+            </div>
+        </div>
 
             <div class="form">
                 <!-- Display Validation Errors -->
