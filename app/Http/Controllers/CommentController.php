@@ -14,9 +14,9 @@ use App\Comment;
 use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller{
 
-    public function add($article_id, $page){
+    public function add($article_id,$title, $page){
 
-        return view('add-comment',['article_id' => $article_id, 'page' => $page]);
+        return view('add-comment',['article_id' => $article_id, 'title' => $title,'page' => $page]);
     }
 
     public function store(Request $request, $article_id, $page){
