@@ -44,7 +44,7 @@
                             <strong>Warning!</strong> To leave your comment login, please.
                         </div>
                     @else
-                        <button class="button btn-primary"><a  href="{{ route('commentAdd',['id' => $article->id,'page'=>$page]) }}" role="button">
+                        <button class="button btn-primary"><a  href="{{ route('commentAdd',['id' => $article->id,'title'=>$article->title,'page'=>$page]) }}" role="button">
                                 Leave your comment</a></button>
                     @endif
                     <!--<a class="btn btn-success" href="{{ url('/?page='. $page) }}" role="button">
