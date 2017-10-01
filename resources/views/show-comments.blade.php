@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2>Comments confirmation</h2>
-        @if ( !empty($comments) )
+        @if ( !$comments->isEmpty() )
             <div class="form">
                 <!-- Display Validation Errors -->
                 @include('common.errors')
