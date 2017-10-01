@@ -38,7 +38,7 @@ Route::get('admin/article/{id}/{page}/{step?}','AdminController@show')->name('ar
 Route::get('admin/add','AdminController@add')->name('articleAdd');
 Route::get('page/update/{id}/{page}','AdminController@update')->name('articleUpdate');
 Route::get('image/add/{id}/{page}','AdminController@imageAdd')->name('imageAdd');
-Route::get('comment/add/{id}/{page}','CommentController@add')->middleware('auth')->name('commentAdd');
+Route::get('comment/add/{id}/{title}/{page}','CommentController@add')->middleware('auth')->name('commentAdd');
 Route::get('moderation','ModerController@showComments')->middleware('auth')->name('moderation');
 
 //POST request
