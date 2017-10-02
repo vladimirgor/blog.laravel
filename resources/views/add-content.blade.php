@@ -11,7 +11,7 @@
             <form method="POST" action="{{route('articleStore')}}">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" required class="form-control" id="title" name="title" placeholder="Title">
+                    <input type="text" autofocus required class="form-control" id="title" name="title" placeholder="Title">
                 </div>
 
                 <div class="form-group">
