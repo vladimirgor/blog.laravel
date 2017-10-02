@@ -12,23 +12,13 @@ class ModerController extends Controller
     public function showComments(){
         $this->authorize('moderationComments');
         // cleaning Comments_mod table
-        //DB::table('Comment_mod')->truncate();
         Comment_mod::truncate();
         //getting 0 status comments
-        //$comments = Comment::select(['id','article_id','user_id','comment',
-        //   'date','status'])->where('status',0)->orderBy('id','desc')->get();
-        /*$comments = DB::table('Comment')
-            ->join('Users','Users.id','=','Comment.user_id')
-            ->select('Comment.id','Comment.comment','Comment.status','Users.login','Comment.article_id')
-            ->where('Comment.status',0)
-            ->orderBy('Comment.id','desc')
-            ->get();*/
         $comments = Comment::join('Users','Users.id','=','Comment.user_id')
             ->select('Comment.id','Comment.comment','Comment.status','Users.login','Comment.article_id')
             ->where('Comment.status',0)
             ->orderBy('Comment.id','desc')
             ->get();
-        //if ( !empty($comments) )
         if ( !$comments->isEmpty() )
 
         //saving 0 status information
@@ -57,7 +47,6 @@ class ModerController extends Controller
                 $comment = Comment::where('id',$id)->first();
                 $comment->status=1;
                 $comment->save();
-                //DB::table('Comment_mod')->where('id',$id)->delete();
                 Comment_mod::where('id',$id)->delete();
             }
         }
@@ -65,7 +54,6 @@ class ModerController extends Controller
         $comments_mod = Comment_mod::all();
         if ( !empty( $comments_mod)  )
             foreach ( $comments_mod  as $comment_mod ) {
-                //DB::table('Comment')->where('id',$comment_mod->id)->delete();
                 Comment::where('id',$comment_mod->id)->delete();
                 $comment_mod->delete();
             }
