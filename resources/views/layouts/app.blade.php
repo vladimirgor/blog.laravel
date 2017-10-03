@@ -76,9 +76,9 @@
                     </li>
                     @endcan
                 </ul>
-                <ul>
+                <ul class="nav navbar-nav">
                     <li>
-                        <a href="{{ url('/search') }}">Search</a>
+                        <a href="{{ url('/searchForm') }}">Search</a>
                     </li>
                 </ul>
                 <!-- Right Side Of Navbar -->
