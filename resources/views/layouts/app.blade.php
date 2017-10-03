@@ -78,7 +78,7 @@
                 </ul>
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="{{ url('/searchForm') }}">Search</a>
+                        <a href="{{ url('/searchForm') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                     </li>
                 </ul>
                 <!-- Right Side Of Navbar -->
