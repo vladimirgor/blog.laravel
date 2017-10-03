@@ -2,10 +2,11 @@
 
 @section('content')
     <div class="container">
-        <h2>Search</h2>
+        <h2>Search details</h2>
         <div class="form">
             <!-- New Comment Form -->
-            <form method="POST" action="{{route('searchShow')}}">
+            <form method="POST" action="{{route('searchDetails')}}">
+                <h4>Please, choose field to search in.</h4>
                 <div class="radio">
                     <label>
                         <input type="radio" name="field" id="title" value="title" checked>
@@ -19,7 +20,7 @@
                     </label>
                 </div>
                 <div class="form-group">
-                    <label for="comment">SearchText</label>
+                    <h4>Please, input text to find.</h4>
                     <input type="text"  class="form-control" id="SearchText" name="searchText" placeholder="SearchText">
                 </div>
                 <!-- Display Validation Errors -->
