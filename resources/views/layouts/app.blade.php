@@ -24,7 +24,6 @@
             margin-right: 6px;
         }
     </style>
-
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{asset('css/bootstrap-theme.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/bootstrap.min.css.map')}}" rel="stylesheet">
@@ -76,6 +75,11 @@
                         </ul>
                     </li>
                     @endcan
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{ url('/searchForm') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                    </li>
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">

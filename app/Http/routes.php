@@ -31,20 +31,28 @@ Route::get('version', function()
 });
 
 Route::get('/','IndexController@index')->name('/');
+Route::get('searchForm','SearchController@searchForm')->name('searchForm');
+Route::get('search/{field}/{searchText}','SearchController@search')->name('search');
 Route::get('/admin','AdminController@index')->name('admin');
 Route::get('/admin/user','AdminController@indexUser')->name('admin/user');
 Route::get('article/{id}/{page}/{step?}','IndexController@show')->name('articleShow');
+Route::get('articleFound/{id}/{field}/{searchText}/{page}/{step?}','SearchController@show')->name('articleFoundShow');
 Route::get('admin/article/{id}/{page}/{step?}','AdminController@show')->name('articleAdmin');
 Route::get('admin/add','AdminController@add')->name('articleAdd');
 Route::get('page/update/{id}/{page}','AdminController@update')->name('articleUpdate');
 Route::get('image/add/{id}/{page}','AdminController@imageAdd')->name('imageAdd');
 Route::get('comment/add/{id}/{title}/{page}','CommentController@add')->middleware('auth')->name('commentAdd');
+Route::get('commentS/add/{id}/{title}/{page}/{field}/{searchText}','CommentController@addS')
+    ->middleware('auth')->name('commentSAdd');
 Route::get('moderation','ModerController@showComments')->middleware('auth')->name('moderation');
 
 //POST request
+Route::post('searchDetails','SearchController@searchDetails')->name('searchDetails');
 Route::post('page/store','AdminController@store')->name('articleStore');
 Route::post('page/update/store/{id}/{page}','AdminController@updateStore')->name('updateStore');
 Route::post('comment/store/{id}/{page}','CommentController@store')->name('commentStore');
+Route::post('commentS/store/{id}/{page}/{field}/{searchText}','CommentController@storeS')
+    ->name('commentSStore');
 Route::post('comment/confirmation','ModerController@confirmationComments')->name('confirmationComments');
 Route::post('image/store/{id}/{page}','AdminController@imageStore')->name('imageStore');
 
