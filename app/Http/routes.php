@@ -31,6 +31,7 @@ Route::get('version', function()
 });
 
 Route::get('/','IndexController@index')->name('/');
+Route::get('searchForm','SearchController@searchForm')->name('searchForm');
 Route::get('/admin','AdminController@index')->name('admin');
 Route::get('/admin/user','AdminController@indexUser')->name('admin/user');
 Route::get('article/{id}/{page}/{step?}','IndexController@show')->name('articleShow');
@@ -42,6 +43,7 @@ Route::get('comment/add/{id}/{title}/{page}','CommentController@add')->middlewar
 Route::get('moderation','ModerController@showComments')->middleware('auth')->name('moderation');
 
 //POST request
+Route::post('searchShow','SearchController@searchShow')->name('searchShow');
 Route::post('page/store','AdminController@store')->name('articleStore');
 Route::post('page/update/store/{id}/{page}','AdminController@updateStore')->name('updateStore');
 Route::post('comment/store/{id}/{page}','CommentController@store')->name('commentStore');
