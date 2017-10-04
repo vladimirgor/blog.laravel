@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 class MyAuth extends Controller
 {
     public function auth(Request $request) {
+        $this->validate($request,[
+            'login' => 'required',
+            'password' => 'required'
+        ]);
         if (Auth::attempt(['login' => $request->input('login'), 'password' => $request->input('password'),'status'=>'1']))
         {
             return redirect('/');
