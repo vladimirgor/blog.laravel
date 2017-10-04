@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-
+        &#128269
         <div class="panel panel-primary">
             @if( $article )
                 <div class="panel-heading">
