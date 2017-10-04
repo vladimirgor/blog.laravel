@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        &#128269
         <h2>New Comment</h2>
         <h4>Title</h4>
         <div class="panel panel-primary">
