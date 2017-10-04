@@ -30,10 +30,11 @@
     <link href="{{ asset('css/mycss.css') }}" rel="stylesheet">
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+<div class="container">
+    <h1> Galina & Vladimir Goryainov</h1>
+    <nav class="navbar navbar-default  navbar-static-top ">
 
+            <div class="navbar-header">
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed"
                         data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -44,12 +45,15 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Galina & Vladimir Goryainov's Blog
-                </a>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{ url('/') }}">Articles</a>
+                    </li>
+                </ul>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
+
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     @can('admin')
@@ -78,7 +82,7 @@
                 </ul>
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="{{ url('/searchForm') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                        <a href="{{ url('/searchForm') }}"><span class="glyphicon glyphicon-search" aria-hidden="true">Search</span></a>
                     </li>
                 </ul>
                 <!-- Right Side Of Navbar -->
@@ -100,14 +104,12 @@
                     @endif
                 </ul>
             </div>
-        </div>
     </nav>
-
     @yield('content')
     <footer>
         <p>&copy; 2016 Vladimir Goryainov</p>
     </footer>
-
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
