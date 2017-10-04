@@ -50,8 +50,8 @@ Route::get('moderation','ModerController@showComments')->middleware('auth')->nam
 Route::post('searchDetails','SearchController@searchDetails')->name('searchDetails');
 Route::post('page/store','AdminController@store')->name('articleStore');
 Route::post('page/update/store/{id}/{page}','AdminController@updateStore')->name('updateStore');
-Route::post('comment/store/{id}/{page}','CommentController@store')->name('commentStore');
-Route::post('commentS/store/{id}/{page}/{field}/{searchText}','CommentController@storeS')
+Route::post('comment/store/{id}/{page}','CommentController@store')->middleware('auth')->name('commentStore');
+Route::post('commentS/store/{id}/{page}/{field}/{searchText}','CommentController@storeS')->middleware('auth')
     ->name('commentSStore');
 Route::post('comment/confirmation','ModerController@confirmationComments')->name('confirmationComments');
 Route::post('image/store/{id}/{page}','AdminController@imageStore')->name('imageStore');
