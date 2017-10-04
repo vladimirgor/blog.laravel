@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2>Search details</h2>
+        <h2>Search details&#128269</h2>
         <div class="form">
             <!-- New Comment Form -->
             <form method="POST" action="{{route('searchDetails')}}">
