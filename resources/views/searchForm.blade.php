@@ -9,6 +9,11 @@
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('searchDetails') }}">
                             {{ csrf_field() }}
+
+                            <div class="form-group">
+                                <label for="field" class="col-md-4 control-label">Search field</label>
+                            </div>
+
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="radio">
@@ -17,7 +22,9 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div><div class="form-group">
+                            </div>
+
+                            <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="radio">
                                         <label>
@@ -44,10 +51,11 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="button btn-primary">
-                                        <i class="fa fa-btn fa-sign-in"></i> Submit
+                                        <i class="fa fa-btn fa-sign-in"></i> Search
                                     </button>
                                 </div>
                             </div>
+
                             @if(Session::has('message'))
                                 <strong>{!!Session::get('message')!!}</strong>
                             @endif
