@@ -8,6 +8,7 @@
                     <div class="panel-heading">Search details&#128269</div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('searchDetails') }}">
+
                             {{ csrf_field() }}
 
                             <div class="form-group">
@@ -36,7 +37,6 @@
 
                             <div class="form-group{{ $errors->has('searchText') ? ' has-error' : '' }}">
                                 <label for="search" class="col-md-4 control-label">Search text</label>
-
                                 <div class="col-md-6">
                                     <input autofocus id="searh" type="text" class="form-control" name="searchText" value="{{ old('searchText') }}">
 
