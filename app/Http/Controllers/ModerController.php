@@ -31,7 +31,7 @@ class ModerController extends Controller
             }
         }
         //show form to confirm comments
-        return view('show-comments')->with(['comments'=>$comments]);
+        return view('moder.show-comments')->with(['comments'=>$comments]);
     }
 
     public function confirmationComments(){

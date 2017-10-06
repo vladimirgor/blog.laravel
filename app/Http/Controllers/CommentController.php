@@ -16,7 +16,7 @@ class CommentController extends Controller{
 
     public function add($article_id,$title, $page){
 
-        return view('add-comment',['article_id' => $article_id, 'title' => $title,'page' => $page]);
+        return view('comment.add-comment',['article_id' => $article_id, 'title' => $title,'page' => $page]);
     }
 
     public function store(Request $request, $article_id, $page){
@@ -39,7 +39,7 @@ class CommentController extends Controller{
     }
     public function addS($article_id,$title,$page,$field,$searchText){
 
-        return view('add_commentSearch',['article_id' => $article_id, 'title' => $title,'page' => $page,
+        return view('comment.add_commentSearch',['article_id' => $article_id, 'title' => $title,'page' => $page,
         'field' => $field, 'searchText' => $searchText]);
     }
 

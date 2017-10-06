@@ -11,7 +11,7 @@ class SearchController extends Controller
 {
     public function searchForm(){
 
-        return view('searchForm');
+        return view('search.searchForm');
     }
     public function searchDetails(Request $request){
 
@@ -26,7 +26,7 @@ class SearchController extends Controller
             'view','image_path','date'])->
         where($field,'LIKE','%'.$searchText.'%')->
         orderBy('id','desc')->paginate(PER_PAGE);
-        return view('articlesFound')->with(['articles'=>$articles,
+        return view('search.articlesFound')->with(['articles'=>$articles,
             'field'=>$field,'searchText'=>$searchText
         ]);
     }
@@ -42,7 +42,7 @@ class SearchController extends Controller
             $user = User::find($comment->user_id);
             $comment->user_id = $user->name;// change user_id by name
         }
-        return view('article-contentFound')->with([
+        return view('search.article-contentFound')->with([
             'comments'=>$comments,
             'page' => $page,
             'field' => $field,
