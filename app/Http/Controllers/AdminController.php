@@ -19,7 +19,7 @@ class AdminController extends Controller
         $articles = Article::select(['id','title','content','comment',
             'view','image_path','date'])->orderBy('id','desc')->paginate(PER_PAGE);
 
-        return view('articleAdmin',[
+        return view('admin.articleAdmin',[
             'articles'=>$articles]);
     }
     public function indexUser(){
@@ -29,7 +29,7 @@ class AdminController extends Controller
         $users = User::select(['id','name','login','email'
           ])->orderBy('id','desc')->paginate(PER_PAGE_USER);
 
-        return view('userAdmin',[
+        return view('admin.userAdmin',[
             'users'=>$users]);
     }
     public function show($id,$page,$step=1){
@@ -44,7 +44,7 @@ class AdminController extends Controller
             $comment->user_id = $user->name;// change user_id by name
         }
 
-        return view('article-contentAdmin')->with([
+        return view('admin.article-contentAdmin')->with([
             'comments'=>$comments,
             'page' => $page,
             'article'=>$article]);
@@ -53,7 +53,7 @@ class AdminController extends Controller
 
         $this->authorize('addNewArticle');
 
-        return view('add-content');
+        return view('admin.add-content');
     }
 
     public function store(Request $request){
@@ -76,7 +76,7 @@ class AdminController extends Controller
 
         $this->authorize('addImage');
 
-        return view('add-image',['article_id'=>$id, 'page' => $page]);
+        return view('admin.add-image',['article_id'=>$id, 'page' => $page]);
     }
 
     public function imageStore(Request $request, $id, $page){
@@ -99,7 +99,7 @@ class AdminController extends Controller
         $this->authorize('updateArticle');
 
         $article = Article::select(['id','title','content','view','image_path'])->where('id',$id)->first();
-        return view('update-article',[ 'article' => $article, 'page' => $page]);
+        return view('admin.update-article',[ 'article' => $article, 'page' => $page]);
     }
 
     public function updateStore(Request $request, $id, $page){
