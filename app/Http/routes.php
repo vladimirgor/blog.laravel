@@ -18,8 +18,6 @@ Route::get('test/{name?}', function($name='guest'){
 Route::get('testNav', function(){
     return view('nav');
 });
-Route::get('Test','TestController@index')->name('Test');
-
 Route::get('welcome_v', function () {
     $laravel = app();
     return view('welcome_i', ['laravel'=>$laravel]);
