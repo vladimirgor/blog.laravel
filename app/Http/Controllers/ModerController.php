@@ -14,10 +14,10 @@ class ModerController extends Controller
         // cleaning Comments_mod table
         Comment_mod::truncate();
         //getting 0 status comments
-        $comments = Comment::join('Users','Users.id','=','Comment.user_id')
-            ->select('Comment.id','Comment.comment','Comment.status','Users.login','Comment.article_id')
-            ->where('Comment.status',0)
-            ->orderBy('Comment.id','desc')
+        $comments = Comment::join('users','users.id','=','comment.user_id')
+            ->select('comment.id','comment.comment','comment.status','users.login','comment.article_id')
+            ->where('comment.status',0)
+            ->orderBy('comment.id','desc')
             ->get();
         if ( !$comments->isEmpty() )
 
