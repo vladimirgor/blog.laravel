@@ -14,7 +14,7 @@
                 <!-- Display Validation Errors -->
                 @include('common.errors')
                 <!-- New Comment Form -->
-                <form method="POST" action="{{route('commentStore',['id'=>$article_id, 'page' => $page])}}">
+                <form id = "commentSave" method="POST" action="{{route('commentStore',['id'=>$article_id, 'page' => $page])}}">
                     <div class="form-group">
                         <label for="comment">Comment</label>
                         <input type="text" autofocus class="form-control" id="comment" name="comment" placeholder="Comment">
