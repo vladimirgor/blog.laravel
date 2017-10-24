@@ -7,7 +7,7 @@
             $articles->total()- ($articles->currentPage()-1)*PER_PAGE :
             PER_PAGE
     ?>
-<div class="container">
+<div>
     <div class="row empty">
         <div class="col-md-4 empty"></div>
         <div class="col-md-4 empty">
@@ -68,7 +68,7 @@
     {{ $articles->links() }}
 
     <hr>
-</div> <!-- /container -->
+</div>
 
 @endif
 

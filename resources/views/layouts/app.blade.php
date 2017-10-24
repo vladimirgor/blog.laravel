@@ -31,7 +31,7 @@
 </head>
 <body id="app-layout">
 <div class="container">
-    <h1> Galina & Vladimir Goryainov</h1>
+    <h1 class = "gor"> Galina & Vladimir Goryainov Blog</h1>
     <nav class="navbar navbar-default  navbar-static-top ">
 
             <div class="navbar-header">
@@ -48,8 +48,12 @@
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-
                 <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{ url('/searchForm') }}"><span class="glyphicon glyphicon-search" aria-hidden="true">Search</span></a>
+                    </li>
+                </ul>
                 <ul class="nav navbar-nav">
                     @can('admin')
                     <li class="dropdown">
@@ -74,11 +78,6 @@
                         </ul>
                     </li>
                     @endcan
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="{{ url('/searchForm') }}"><span class="glyphicon glyphicon-search" aria-hidden="true">Search</span></a>
-                    </li>
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
