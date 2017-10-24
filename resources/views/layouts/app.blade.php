@@ -31,7 +31,7 @@
 </head>
 <body id="app-layout">
 <div class="container">
-    <h1 class = "gor"> Galina & Vladimir Goryainov</h1>
+    <h1 class = "gor"> Galina & Vladimir Goryainov Blog</h1>
     <nav class="navbar navbar-default  navbar-static-top ">
 
             <div class="navbar-header">
