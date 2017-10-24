@@ -68,7 +68,7 @@
     {{ $articles->links() }}
 
     <hr>
-</div> 
+</div>
 
 @endif
 
