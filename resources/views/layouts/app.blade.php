@@ -27,7 +27,7 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{asset('css/bootstrap-theme.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/bootstrap.min.css.map')}}" rel="stylesheet">
-    <link href="{{ asset('css/mycss.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body id="app-layout">
 <div class="container">
