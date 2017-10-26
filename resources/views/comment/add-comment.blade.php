@@ -18,6 +18,8 @@
                     <label for="comment">Comment</label>
                     <input type="text" autofocus class="form-control" id="comment" name="comment" placeholder="Comment">
                 </div>
+                <input type="number" hidden name="article_id" value="{{$article_id}}">
+                <input type="number" hidden name="user_id" value="{{$user_id}}">
                 <!-- Add Comment Button -->
                 <button  type="submit" class="button btn-primary">Submit</button>
                 {{ csrf_field() }}
