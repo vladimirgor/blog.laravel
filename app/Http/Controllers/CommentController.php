@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller{
 
     public function add($article_id,$title, $page){
-
-        return view('comment.add-comment',['article_id' => $article_id, 'title' => $title,'page' => $page]);
+        return view('comment.add-comment',['article_id' => $article_id, 'user_id' => Auth::user()->id,
+            'title' => $title,'page' => $page]);
     }
 
     public function store(Request $request, $article_id, $page){
@@ -32,8 +32,7 @@ class CommentController extends Controller{
         $comment->date = date('Y-m-d-H:i:s');
         $comment->article_id = $article_id;
         $comment->fill($data);
-        $user = Auth::user();
-        $comment->user_id=$user->id;
+        $comment->user_id=Auth::user()->id;
         $comment->save();
         return redirect(url('/article' .'/'. $article_id .'/' . $page. '/2'));
     }
