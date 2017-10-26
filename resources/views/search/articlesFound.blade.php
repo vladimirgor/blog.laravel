@@ -4,8 +4,8 @@
     <div class="container">
         @if ( !$articles->isEmpty() )
             <?php $items = ( $articles->currentPage() == $articles->lastPage()) ?
-                    $articles->total()- ($articles->currentPage()-1)*PER_PAGE :
-                    PER_PAGE
+                    $articles->total()- ($articles->currentPage()-1)*env('PER_PAGE') :
+                    env('PER_PAGE')
             ?>
         <h4>{{ $articles->total()}} articles found for detail "{{$searchText}}" in the "{{$field}}" field.&#128269</h4><br>
         <div class="row empty">
