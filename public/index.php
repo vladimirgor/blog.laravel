@@ -36,7 +36,7 @@ require __DIR__.'/../bootstrap/autoload.php';
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 require(__DIR__ . '/funcs.php');
-include_once(__DIR__ . '/myconfig.php');
+
 
 /*
 |--------------------------------------------------------------------------
