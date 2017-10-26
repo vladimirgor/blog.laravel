@@ -25,7 +25,7 @@ class SearchController extends Controller
         $articles = Article::select(['id','title','content','comment',
             'view','image_path','date'])->
         where($field,'LIKE','%'.$searchText.'%')->
-        orderBy('id','desc')->paginate(PER_PAGE);
+        orderBy('id','desc')->paginate(env('PER_PAGE'));
         return view('search.articlesFound')->with(['articles'=>$articles,
             'field'=>$field,'searchText'=>$searchText
         ]);

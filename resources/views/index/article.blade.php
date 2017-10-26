@@ -4,8 +4,8 @@
 
 @if ( !$articles->isEmpty() )
     <?php $items = ( $articles->currentPage() == $articles->lastPage()) ?
-            $articles->total()- ($articles->currentPage()-1)*PER_PAGE :
-            PER_PAGE
+            $articles->total()- ($articles->currentPage()-1)*env('PER_PAGE') :
+            env('PER_PAGE')
     ?>
 <div>
     <div class="row empty">

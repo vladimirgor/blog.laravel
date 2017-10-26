@@ -17,7 +17,7 @@ class IndexController extends Controller
     public function index(){
 
         $articles = Article::select(['id','title','content','comment',
-            'view','image_path','date'])->orderBy('id','desc')->paginate(PER_PAGE)
+            'view','image_path','date'])->orderBy('id','desc')->paginate(env('PER_PAGE'))
         ;
         return view('index.article')->with(['articles'=>$articles]);
     }

@@ -12,10 +12,10 @@ class TestController extends Controller
        // dump($page);
 
         $articles = Article::select(['id','title','content','comment',
-            'view','image_path','date'])->orderBy('id','desc')->paginate(PER_PAGE);
+            'view','image_path','date'])->orderBy('id','desc')->paginate(env('PER_PAGE'));
         //get();
         //dump($articles);
-       // $articles = new LengthAwarePaginator($collection, $collection->count(), PER_PAGE);
+       // $articles = new LengthAwarePaginator($collection, $collection->count(), env('PER_PAGE'));
         //$articles->resolveCurrentPage($page);
         //dump($articles->links());
         //$links = str_replace('?page=', '/page/',$articles->links());

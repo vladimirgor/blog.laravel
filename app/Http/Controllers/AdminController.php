@@ -17,7 +17,7 @@ class AdminController extends Controller
         $this->authorize('admin');
 
         $articles = Article::select(['id','title','content','comment',
-            'view','image_path','date'])->orderBy('id','desc')->paginate(PER_PAGE);
+            'view','image_path','date'])->orderBy('id','desc')->paginate(env('PER_PAGE'));
 
         return view('admin.articleAdmin',[
             'articles'=>$articles]);
@@ -27,7 +27,7 @@ class AdminController extends Controller
         $this->authorize('user');
 
         $users = User::select(['id','name','login','email'
-          ])->orderBy('id','desc')->paginate(PER_PAGE_USER);
+          ])->orderBy('id','desc')->paginate(env('PER_PAGE_USER'));
 
         return view('admin.userAdmin',[
             'users'=>$users]);
@@ -86,7 +86,7 @@ class AdminController extends Controller
                 $file_name = $request->image->getClientOriginalName();
                 $request->image->move('images',$file_name);
                 $article = Article::find($id);
-                $article->image_path = '/' . IMAGES_FILE .'/'. $file_name;
+                $article->image_path = '/' . env('IMAGES_FILE') .'/'. $file_name;
                 $article->save();
             }
         }
