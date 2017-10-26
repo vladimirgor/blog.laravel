@@ -70,3 +70,14 @@ table {
     color: #260cff;
     text-align: center;
 }
+#comment_error {
+       color: #f00;
+}
+#comment_message {
+
+    color: #2cad45;
+}
+#comment_error,#comment_message {
+    display:none;
+}
+

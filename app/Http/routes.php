@@ -51,6 +51,7 @@ Route::post('page/update/store/{id}/{page}','AdminController@updateStore')->name
 Route::post('comment/store/{id}/{page}','CommentController@store')->middleware('auth')->name('commentStore');
 Route::post('commentS/store/{id}/{page}/{field}/{searchText}','CommentController@storeS')->middleware('auth')
     ->name('commentSStore');
+Route::post('ajaxComment','Ajax\CommentController@comment');
 Route::post('comment/confirmation','ModerController@confirmationComments')->name('confirmationComments');
 Route::post('image/store/{id}/{page}','AdminController@imageStore')->name('imageStore');
 
