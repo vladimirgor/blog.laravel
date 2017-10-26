@@ -14,6 +14,12 @@
             @include('common.errors')
             <!-- New Comment Form -->
             <form id = "comment_form" method="POST" >
+                <div id="comment_message">
+                    Your comment has been sent!
+                </div>
+                <div id="comment_error">
+                    An error occurred while sending the comment.
+                </div>
                 <div class="form-group">
                     <label for="comment">Comment</label>
                     <input type="text" autofocus class="form-control" id="comment" name="comment" placeholder="Comment">

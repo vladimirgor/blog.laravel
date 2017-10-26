@@ -7,7 +7,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'POST',
-            url: '/ajax-comment',
+            url: '/ajaxComment',
             data: $('#comment_form').serialize(),
             success: function(result){
                 console.log(result);
