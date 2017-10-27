@@ -4,7 +4,8 @@
 $(document).ready(function(){
     $('#comment_form').on('submit', function(e){
         e.preventDefault();
-
+        var error = $('#comment_error');
+        var message = $('#comment_message')
         $.ajax({
             type: 'POST',
             url: '/ajaxComment',
@@ -12,29 +13,30 @@ $(document).ready(function(){
             success: function(data){
                 if(data.result)
                 {
-                    $('#comment_error').hide();
-                    $('#comment_message').show();
+                    error.hide();
+                    message.show();
                 }
                 else
                 {
-                    $('#comment_error').show();
-                    $('#comment_message').hide();
+                    error.show();
+                    message.hide();
                 }
             },
             error: function(data){
+                var response = data.responseText;
                 //{"comment":["The comment field is required."]} -
-                if (data.responseText.indexOf("comment",2) >= 0 )
+                if ( response.indexOf("comment",2) >= 0 )
                 {
-                   $('#comment_error').html('<strong>' + data.responseText.substr(13,30) + '</strong>' +
+                   error.html('<strong>' + response.substr(13,30) + '</strong>' +
                     ' Input your comment, please.');
                 }
                 else
                 {
-                   $('#comment_error').html('<strong>An error occurred while sending the comment.</strong>' +
+                   error.html('<strong>An error occurred while sending the comment.</strong>' +
                    ' Apply to the administrator, please.');
                 }
-                    $('#comment_error').show();
-                    $('#comment_message').hide();
+                    error.show();
+                    message.hide();
 
             }
         });
