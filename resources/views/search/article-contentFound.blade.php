@@ -49,8 +49,7 @@
                     'field' => $field, 'searchText' => $searchText]) }}" role="button">
                             Leave your comment</a></button>
                     @endif
-                            <!--<a class="btn btn-success" href="{{ url('/?page='. $page) }}" role="button">
-                        Back</a>-->
+
                     <button class="button btn-success"><a href="{{ url('search/'.$field.'/'.$searchText.
                     '/'.'?page='. $page) }}" role="button">
                             Back</a></button>
