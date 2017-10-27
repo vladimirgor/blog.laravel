@@ -45,7 +45,7 @@
                             <!-- New Comment Form -->
                             <form id = "comment_form" method="POST" >
                                 <div class="form-group">
-                                    <input type="text" required autofocus class="form-control"
+                                    <input type="text" required  class="form-control"
                                            name="comment" placeholder="Input your comment here, please.">
                                 </div>
                                 <input type="number" hidden name="article_id" value="{{$article->id}}">
