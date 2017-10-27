@@ -21,9 +21,21 @@ $(document).ready(function(){
                     $('#comment_message').hide();
                 }
             },
-            error: function(){
-                $('#comment_error').show();
-                $('#comment_message').hide();
+            error: function(data){
+                //{"comment":["The comment field is required."]} -
+                if (data.responseText.indexOf("comment",2) >= 0 )
+                {
+                   $('#comment_error').html('<strong>' + data.responseText.substr(13,30) + '</strong>' +
+                    ' Input your comment, please.');
+                }
+                else
+                {
+                   $('#comment_error').html('<strong>An error occurred while sending the comment.</strong>' +
+                   ' Apply to the administrator, please.');
+                }
+                    $('#comment_error').show();
+                    $('#comment_message').hide();
+
             }
         });
     });
