@@ -5,7 +5,7 @@
  * Date: 30.10.2016
  * Time: 23:32
  */
-
+/*
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -62,3 +62,4 @@ class CommentController extends Controller{
             . $page. '/2'));
     }
 }
+*/
