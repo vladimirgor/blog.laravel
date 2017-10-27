@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('#comment_form').on('submit', function(e){
         e.preventDefault();
         var error = $('#comment_error');
-        var message = $('#comment_message')
+        var message = $('#comment_message');
         $.ajax({
             type: 'POST',
             url: '/ajaxComment',
@@ -23,22 +23,30 @@ $(document).ready(function(){
                 }
             },
             error: function(data){
-                var response = data.responseText;
-                //{"comment":["The comment field is required."]} -
-                if ( response.indexOf("comment",2) >= 0 )
-                {
-                   error.html('<strong>' + response.substr(13,30) + '</strong>' +
-                    ' Input your comment, please.');
-                }
-                else
-                {
-                   error.html('<strong>An error occurred while sending the comment.</strong>' +
-                   ' Apply to the administrator, please.');
+                if ( 'responseJSON' in data ) {
+                    if ('comment' in data.responseJSON ) {
+                        error.html('<strong>' + data.responseJSON.comment + '</strong>' +
+                        ' Input your comment, please.');
+                    }
+                    else {
+                        error.html('<strong>An error occurred while sending the comment.</strong>' +
+                        ' Apply to the administrator, please.');
+                    }
                 }
                     error.show();
                     message.hide();
-
             }
         });
     });
 });
+/*
+ $.each(data, function (i,e) {
+ alert('--'+ i +'--'+ e +'--');
+ });
+ */
+/*
+ //{"comment":["The comment field is required."]} - JSON data string
+ var response = JSON.parse(data.responseText);
+ //The JSON.parse (str) call will turn the JSON data string
+ // into a JavaScript object / array / value.
+ */
