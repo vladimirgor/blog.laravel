@@ -65,7 +65,7 @@
                                 <strong>An error occurred while sending the comment.</strong> Apply to the administrator, please.
                             </div>
                             <!-- Add Comment Button -->
-                            <button  type="submit" class="button btn-primary">Submit comment</button>
+                            <button  type="submit" class="button-comment btn-primary">Submit comment</button>
                             {{ csrf_field() }}
                         </form>
                     </div>
