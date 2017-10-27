@@ -39,18 +39,12 @@ Route::get('admin/article/{id}/{page}/{step?}','AdminController@show')->name('ar
 Route::get('admin/add','AdminController@add')->name('articleAdd');
 Route::get('page/update/{id}/{page}','AdminController@update')->name('articleUpdate');
 Route::get('image/add/{id}/{page}','AdminController@imageAdd')->name('imageAdd');
-//Route::get('comment/add/{id}/{title}/{page}','CommentController@add')->middleware('auth')->name('commentAdd');
-//Route::get('commentS/add/{id}/{title}/{page}/{field}/{searchText}','CommentController@addS')
-//    ->middleware('auth')->name('commentSAdd');
 Route::get('moderation','ModerController@showComments')->middleware('auth')->name('moderation');
 
 //POST request
 Route::post('searchDetails','SearchController@searchDetails')->name('searchDetails');
 Route::post('page/store','AdminController@store')->name('articleStore');
 Route::post('page/update/store/{id}/{page}','AdminController@updateStore')->name('updateStore');
-//Route::post('comment/store/{id}/{page}','CommentController@store')->middleware('auth')->name('commentStore');
-//Route::post('commentS/store/{id}/{page}/{field}/{searchText}','CommentController@storeS')->middleware('auth')
-//    ->name('commentSStore');
 Route::post('ajaxComment','Ajax\CommentController@comment')->middleware('auth');
 Route::post('comment/confirmation','ModerController@confirmationComments')->name('confirmationComments');
 Route::post('image/store/{id}/{page}','AdminController@imageStore')->name('imageStore');
@@ -63,18 +57,12 @@ Route::auth();
 
 // Маршруты аутентификации...
 Route::get('login', 'Auth\AuthController@getLogin');
-//Route::post('login', 'Auth\AuthController@postLogin');
 Route::post('login', 'Auth\MyAuth@auth');
-
-//Route::get('logout', 'Auth\AuthController@getLogout');
 
 // Маршруты регистрации...
 Route::get('register', 'Auth\AuthController@getRegister');
-
-//Route::post('register', 'Auth\AuthController@postRegister');
 Route::post('register','AdvancedReg@register');
 Route::get('register/confirm/{token}','AdvancedReg@confirm');
-
 Route::get('repeat_confirm','AdvancedReg@getRepeat');
 Route::post('repeat_confirm','AdvancedReg@postRepeat');
 
