@@ -21,12 +21,13 @@
                 @if ( $comments )
                     <ul>
                         @foreach ( $comments as $comment )
+                            <div class ="sharp"></div>
                             <li class="comment">
                                 {{ $comment->user_id }}. {{ $comment->date }}
                                 <br>
-                                <blockquote class = "comment_text">
+                                <p class = "comment_text">
                                     <b><i>{{$comment->comment}}</i></b>
-                                </blockquote>
+                                </p>
                             </li>
                         @endforeach
                     </ul>
@@ -45,8 +46,8 @@
                             <!-- New Comment Form -->
                             <form id = "comment_form" method="POST" >
                                 <div class="form-group">
-                                    <input type="text" required  class="form-control"
-                                           name="comment" placeholder="Input your comment here, please.">
+                                    <textarea class="form-control comment_area" required  name="comment"
+                                              rows="3" placeholder="Input your comment here, please."></textarea>
                                 </div>
                                 <input type="number" hidden name="article_id" value="{{$article->id}}">
                                 <input type="number" hidden name="user_id" value="{{Auth::user()->id}}">
