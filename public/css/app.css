@@ -10,10 +10,32 @@
 .comment {
     color:navy;
     font-size: 12px;
-
+    list-style-type: none;
+    background-color: #fbfbfb;
+    position: relative;
+    left:20px;
+    top:-20px;
+    width:50%;
+    padding-top: 10px;
+    padding-left: 15px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 .comment_text {
     font-size: 11px;
+    padding:10px 10px 20px 10px;
+}
+.comment_area {
+    width: 75%;
+    background-color: #fbfbfb;
+}
+.sharp {
+    width: 0px; height: 0px; background: #fff;
+    border-top: 10px solid #fbfbfb;
+    border-right: 10px solid #fbfbfb;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
 }
 .button,.button-comment {
     display: inline-block;

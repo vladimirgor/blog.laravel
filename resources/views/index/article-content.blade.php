@@ -20,12 +20,13 @@
             @if ( $comments )
                 <ul>
                     @foreach ( $comments as $comment )
+                        <div class ="sharp"></div>
                         <li class="comment">
                            {{ $comment->user_id }}. {{ $comment->date }}
                             <br>
-                            <blockquote class = "comment_text">
+                            <p class = "comment_text">
                                 <b><i>{{$comment->comment}}</i></b>
-                            </blockquote>
+                            </p>
                         </li>
                     @endforeach
                 </ul>
@@ -44,18 +45,22 @@
                         <!-- New Comment Form -->
                         <form id = "comment_form" method="POST" >
                             <div class="form-group">
-                                <input type="text" required  class="form-control"
-                                       name="comment" placeholder="Input your comment here, please.">
+                                <textarea class="form-control comment_area" required  name="comment"
+                                          rows="3" placeholder="Input your comment here, please."></textarea>
                             </div>
                             <input type="number" hidden name="article_id" value="{{$article->id}}">
                             <input type="number" hidden name="user_id" value="{{Auth::user()->id}}">
                             <div id="comment_message" class="alert alert-success alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <strong>Thanks a lot for the comment!</strong> To be published your comment must pass the moderation procedure.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <strong>Thanks a lot for the comment!</strong>
+                                To be published your comment must pass the moderation procedure.
                             </div>
                             <div id="comment_error" class="alert alert-danger alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <strong>An error occurred while sending the comment.</strong> Apply to the administrator, please.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <strong>An error occurred while sending the comment.</strong>
+                                Apply to the administrator, please.
                             </div>
                             <!-- Add Comment Button -->
                             <button  type="submit" class="button-comment btn-primary ">Submit comment</button>
