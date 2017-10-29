@@ -18,7 +18,7 @@ class CommentController extends Controller
         {
             $data = $request->all();
             $comment = new Comment;
-            $comment->date = date('Y-m-d-H:i:s');
+            $comment->date = date('Y-m-d H:i:s');
             $comment->fill($data);
             $comment->save();
             $result = true;
