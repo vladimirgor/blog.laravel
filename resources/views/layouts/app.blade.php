@@ -55,7 +55,7 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    @can('admin')
+                    @can('access','admin')
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="admin"
                            aria-expanded="false">
@@ -67,7 +67,7 @@
                         </ul>
                     </li>
                     @endcan
-                    @can('moder')
+                    @can('access','moder')
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="moder"
                            aria-expanded="false">
