@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Priv;
+use App\PrivForRole;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,13 +28,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        $gate->define('admin',function ($user){
-            return $user->login == env('AUTH_USER');
+        $gate->define('access',function ($user,$privilege){
+            $can = PrivForRole::join('privs','privs.id_priv','=','priv_for_roles.id_priv')
+                ->select('privs.name','privs.id_priv')
+                ->where([['priv_for_roles.id_role','=',$user->role_id],
+                    ['privs.name','=',$privilege]])
+                ->get();
+            return  !$can->isEmpty();
         });
 
-        $gate->define('moder',function ($user){
-            return $user->login == env('AUTH_MODER');
-        });
-           }
+    }
 
 }
