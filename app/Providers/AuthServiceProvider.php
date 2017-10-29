@@ -26,47 +26,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        $gate->define('addNewArticle',function ($user){
-            return $user->login == env('AUTH_USER');
-        });
-
-        $gate->define('addImage',function ($user){
-            return $user->login == env('AUTH_USER');
-        });
-
-        $gate->define('updateArticle',function ($user){
-            return $user->login == env('AUTH_USER');
-        });
-
-        $gate->define('deleteArticle',function ($user){
-            return $user->login == env('AUTH_USER');
-        });
-
-        $gate->define('deleteComment',function ($user){
-            return $user->login == env('AUTH_USER');
-        });
-
-        $gate->define('deleteUser',function ($user){
-            return $user->login == env('AUTH_USER');
-        });
-
         $gate->define('admin',function ($user){
             return $user->login == env('AUTH_USER');
         });
 
-        $gate->define('user',function ($user){
-            return $user->login == env('AUTH_USER');
-        });
-
-        $gate->define('article',function ($user){
-            return $user->login == env('AUTH_USER');
-        });
         $gate->define('moder',function ($user){
             return $user->login == env('AUTH_MODER');
         });
-        $gate->define('moderationComments',function ($user){
-            return $user->login == env('AUTH_MODER');
-        });
-    }
+           }
 
 }
