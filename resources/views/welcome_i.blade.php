@@ -1,1 +1,1 @@
-<h1><?=$laravel::VERSION?></h1>
+<h1>Your Laravel version is <?=$laravel::VERSION?> !</h1>
