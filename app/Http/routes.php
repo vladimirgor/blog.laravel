@@ -12,12 +12,6 @@
 */
 use App\Article;
 use App\Comment;
-Route::get('test/{name?}', function($name='guest'){
-    return('welcome ' . $name . '!');
-});
-Route::get('testNav', function(){
-    return view('nav');
-});
 Route::get('welcome_v', function () {
     $laravel = app();
     return view('welcome_i', ['laravel'=>$laravel]);
@@ -27,7 +21,7 @@ Route::get('version', function()
     $laravel = app();
     return "Your Laravel version is ".$laravel::VERSION;
 });
-
+Route::get('test','TestController@index');
 Route::get('/','IndexController@index')->name('/');
 Route::get('searchForm','SearchController@searchForm')->name('searchForm');
 Route::get('search/{field}/{searchText}','SearchController@search')->name('search');
