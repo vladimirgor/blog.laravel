@@ -29,9 +29,9 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies($gate);
 
         $gate->define('access',function ($user,$privilege){
-            $can = PrivForRole::join('privs','privs.id_priv','=','priv_for_roles.id_priv')
+            $can = PrivForRole::join('privs','privs.id_priv','=','priv_for_roles.priv_id')
                 ->select('privs.name','privs.id_priv')
-                ->where([['priv_for_roles.id_role','=',$user->role_id],
+                ->where([['priv_for_roles.role_id','=',$user->role_id],
                     ['privs.name','=',$privilege]])
                 ->get();
             return  !$can->isEmpty();
