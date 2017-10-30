@@ -13,8 +13,9 @@ class CreatePrivForRolesTable extends Migration
     public function up()
     {
         Schema::create('priv_for_roles', function (Blueprint $table) {
-            $table->integer('id_priv');
-            $table->integer('id_role');
+            $table->increments('id');
+            $table->integer('priv_id');
+            $table->integer('role_id');
             $table->timestamps();
         });
     }
