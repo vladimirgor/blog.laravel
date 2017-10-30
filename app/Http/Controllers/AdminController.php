@@ -14,7 +14,7 @@ class AdminController extends Controller
     }
     public function index(){
 
-        $this->authorize('admin');
+        $this->authorize('access','articleAdmin');
 
         $articles = Article::select(['id','title','content','comment',
             'view','image_path','date'])->orderBy('id','desc')->paginate(env('PER_PAGE'));
@@ -24,7 +24,7 @@ class AdminController extends Controller
     }
     public function indexUser(){
 
-        $this->authorize('admin');
+        $this->authorize('access','userAdmin');
 
         $users = User::select(['id','name','login','email'
           ])->orderBy('id','desc')->paginate(env('PER_PAGE_USER'));
@@ -34,7 +34,7 @@ class AdminController extends Controller
     }
     public function show($id,$page,$step=1){
 
-        $this->authorize('admin');
+        $this->authorize('access','articleContentAdmin');
 
         $article = Article::select(['id','title','content','view','image_path'])->where('id',$id)->first();
 
@@ -51,7 +51,7 @@ class AdminController extends Controller
     }
     public function add(){
 
-        $this->authorize('admin');
+        $this->authorize('access','addContent');
 
         return view('admin.add-content');
     }
@@ -74,7 +74,7 @@ class AdminController extends Controller
     }
     public function imageAdd($id, $page){
 
-        $this->authorize('admin');
+        $this->authorize('access','addImage');
 
         return view('admin.add-image',['article_id'=>$id, 'page' => $page]);
     }
@@ -96,7 +96,7 @@ class AdminController extends Controller
 
     public function update($id,$page){
 
-        $this->authorize('admin');
+        $this->authorize('access','updateArticle');
 
         $article = Article::select(['id','title','content','view','image_path'])->where('id',$id)->first();
         return view('admin.update-article',[ 'article' => $article, 'page' => $page]);
@@ -116,7 +116,7 @@ class AdminController extends Controller
     }
     public function deleteComment($id, $article_id, $page){
 
-        $this->authorize('admin');
+        $this->authorize('access','deleteComment');
 
         $comment = Comment::find($id);
         $article = Article::find($article_id);
@@ -127,7 +127,7 @@ class AdminController extends Controller
     }
     public function deleteArticle($id){
 
-        $this->authorize('admin');
+        $this->authorize('access','deleteArticle');
 
         $article = Article::find($id);
         $comments = Article::find($id)->comments;
@@ -141,7 +141,7 @@ class AdminController extends Controller
     }
     public function deleteUser($id){
 
-        $this->authorize('admin');
+        $this->authorize('access','deleteUser');
         $user = User::find($id);
         $comments= User::find($id)->comments;
 

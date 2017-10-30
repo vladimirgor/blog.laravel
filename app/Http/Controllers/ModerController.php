@@ -10,7 +10,7 @@ use App\Comment_mod;
 class ModerController extends Controller
 {
     public function showComments(){
-        $this->authorize('moder');
+        $this->authorize('access','showComments');
         // cleaning Comments_mod table
         Comment_mod::truncate();
         //getting 0 status comments
@@ -35,7 +35,7 @@ class ModerController extends Controller
     }
 
     public function confirmationComments(){
-        $this->authorize('moder');
+        $this->authorize('access','confirmComments');
         //Getting confirmed comments information
         foreach($_POST as $article_id => $id){
             if ( $article_id != '_token' ) {

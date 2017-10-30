@@ -4,7 +4,7 @@
 
     <div class="container">
         @if ($articles)
-            @can('admin') <!-- проверяем права -->
+            @can('access','articleAdmin') <!-- проверяем права -->
             <div class="panel-body">
                 <button class="button  btn-warning"><a  href="{{ route('articleAdd') }}">
                     Add new article</a></button>
