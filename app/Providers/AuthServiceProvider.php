@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use App\Priv;
+use App\Role;
 use App\PrivForRole;
 
 class AuthServiceProvider extends ServiceProvider
@@ -14,9 +15,9 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
-    ];
+   // protected $policies = [
+   //     'App\Model' => 'App\Policies\ModelPolicy',
+   // ];
 
     /**
      * Register any application authentication / authorization services.
@@ -29,14 +30,13 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies($gate);
 
         $gate->define('access',function ($user,$privilege){
+
             $can = PrivForRole::join('privs','privs.id_priv','=','priv_for_roles.priv_id')
                 ->select('privs.name','privs.id_priv')
                 ->where([['priv_for_roles.role_id','=',$user->role_id],
                     ['privs.name','=',$privilege]])
                 ->get();
-            return  !$can->isEmpty();
+             return  !$can->isEmpty();
         });
-
     }
-    
 }
