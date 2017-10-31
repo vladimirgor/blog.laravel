@@ -14,7 +14,6 @@ class CreatePrivsTable extends Migration
     {
         Schema::create('privs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_priv');
             $table->string('name');
             $table->string('description');
             $table->timestamps();
