@@ -116,3 +116,6 @@ table {
 #password {
   border-right: none;
 }
+.has-error .eye {
+    background-color: #fff;
+}
