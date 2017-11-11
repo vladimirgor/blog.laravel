@@ -33,12 +33,12 @@
                                         <span id = "show_password_login" class="glyphicon glyphicon-eye-open" aria-hidden="true">
                                         </span>
                                     </span>
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
+                                </div>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
                                             <strong>{{ $errors->first('password') }}</strong>
                                         </span>
-                                    @endif
-                                </div>
+                                @endif
                             </div>
                         </div>
 
