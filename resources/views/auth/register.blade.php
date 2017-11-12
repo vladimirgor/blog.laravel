@@ -52,26 +52,35 @@
                             </div>
                         </div>
                         <!-- password -->
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
+                            <label for="password_login" class="col-md-4 control-label">Password</label>
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
-
+                                <div class="input-group">
+                                    <input id="password_login" type="password" class="form-control " name="password" aria-describedby="basic-addon1">
+                                    <span class="input-group-addon eye" id="basic-addon1">
+                                        <span id = "show_password_login" class="glyphicon glyphicon-eye-open" aria-hidden="true">
+                                        </span>
+                                    </span>
+                                </div>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
                                 @endif
                             </div>
                         </div>
                         <!-- password confirm -->
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
+                            <label for="password_confirm" class="col-md-4 control-label">Confirm Password</label>
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-
+                                <div class="input-group">
+                                    <input id="password_confirm" type="password" class="form-control " name="password_confirmation" aria-describedby="basic-addon2">
+                                    <span class="input-group-addon eye" id="basic-addon2">
+                                        <span id = "show_password_confirm" class="glyphicon glyphicon-eye-open" aria-hidden="true">
+                                        </span>
+                                    </span>
+                                </div>
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>

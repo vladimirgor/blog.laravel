@@ -38,6 +38,20 @@ $(document).ready(function(){
             }
         });
     });
+    $("#show_password_login")
+        .mousedown(function(){
+            $("#password_login").attr({'type':'text'});
+        })
+        .mouseup(function(){
+            $("#password_login").attr({'type':'password'});
+       });
+    $("#show_password_confirm")
+        .mousedown(function(){
+            $("#password_confirm").attr({'type':'text'});
+        })
+        .mouseup(function(){
+            $("#password_confirm").attr({'type':'password'});
+        });
 });
 /*
  $.each(data, function (i,e) {
