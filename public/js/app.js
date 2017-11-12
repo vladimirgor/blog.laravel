@@ -38,7 +38,13 @@ $(document).ready(function(){
             }
         });
     });
-
+    $("#show_password_login")
+        .mousedown(function(){
+        $("#password_login").attr({'type':'text'});
+    })
+        .mouseup(function(){
+        $("#password_login").attr({'type':'password'});
+    });
 });
 /*
  $.each(data, function (i,e) {
