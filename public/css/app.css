@@ -119,7 +119,7 @@ table {
 .eye:active {
     color: #ff1a04;
 }
-#password_login {
+#password_login, #password_confirm {
   border-right: none;
 }
 .has-error .eye {
